@@ -1,0 +1,5 @@
+.tmp/
+.vagrant/
+bower_components/
+node_modules/
+dist/

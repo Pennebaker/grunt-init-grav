@@ -3,7 +3,7 @@ grunt-init-grav
 
 This is a grunt init template for Craft projects. It automates the following:
 
-* Downloads and installs Craft as a dependency
+* Downloads and installs Grav as a dependency
 * Compiles SASS and Blesses it
 * Concatenates and minifies all vendor JS
 * Minifies main.js

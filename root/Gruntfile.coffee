@@ -19,6 +19,10 @@ module.exports = (grunt) ->
       bower:
         files: ['bower.json', 'bower_components/*']
         tasks: ['bower_install', 'bower_concat']
+    mkdir:
+      all:
+        options:
+          create: ['src']
     copy:
       main:
         files: [
@@ -36,17 +40,25 @@ module.exports = (grunt) ->
           cwd: '.tmp/grav-admin'
           src: '**'
           dest: 'dist/'
-        },{
-          expand: true
-          cwd: '.tmp/grav-admin/'
-          src: '.htaccess'
-          dest: 'dist/'
+          dot: true
         }]
+    clean:
+      main: [
+        '.tmp'
+      ]
+      gravPostInstall: [
+        'dist/webserver-configs/'
+        'dist/**/.gitkeep'
+        'dist/CHANGELOG.md'
+        'dist/CONTRIBUTING.md'
+        'dist/README.md'
+        'dist/LICENSE.txt'
+      ]
 
   grunt.registerTask 'grav_install', 'Downloads Grav_Admin and installs Grav_Admin', ->
     if grunt.file.exists('dist/index.php') isnt true
-      grunt.task.run ['curl:grav', 'unzip:grav', 'copy:grav_install']
+      grunt.task.run ['curl:grav', 'unzip:grav', 'copy:grav_install', 'clean']
 
   grunt.registerTask 'install', ['bower_install', 'grav_install']
-  grunt.registerTask 'build', ['install', 'copy:main']
+  grunt.registerTask 'build', ['install', 'clean:main', 'copy:main', 'mkdir']
   grunt.registerTask 'default', ['build', 'watch']

@@ -1,16 +1,13 @@
 grunt-init-grav
 ================
 
-This is a grunt init template for Craft projects. It automates the following:
+This is a grunt init template for Grav projects. It automates the following:
 
 * Downloads and installs Grav as a dependency
-* Compiles SASS and Blesses it
-* Concatenates and minifies all vendor JS
-* Minifies main.js
-* Compiles a gitbook in `docs/`
-* Watches for changes and recompiles
-* Makes automatic backups of the SQL database to `data/cms.sql`
-* Automatically imports `data/cms.sql` when the Vagrant server starts
+* ~~Compiles SASS and Blesses it~~
+* ~~Concatenates and minifies all vendor JS~~
+* ~~Minifies main.js~~
+* ~~Watches for changes and recompiles~~
 
 Installation
 ------------
